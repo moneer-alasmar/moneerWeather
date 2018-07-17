@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { SettingsPage } from '../settings/settings'
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
@@ -11,7 +11,7 @@ export class TabsPage {
 
   tab1Root = HomePage;
   tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  tab3Root = SettingsPage;
 
   constructor() {
 

@@ -1,17 +1,58 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>MoneerWeather</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content padding class="home">
+  <ion-grid *ngIf="weather">
+    <ion-row>
+      <ion-col width-50 offset-25>
+        <h2 class="location">{{weather.name}}, {{weather.sys.country}}</h2>
+        <div class="icon"><img src="{{this.iconUrl}}"></div>
+        <h3 class="desc">{{weather.weather["0"].description}}</h3>
+        <h1 class="temp">{{weather.main.temp}}&deg;</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-100>
+        <ion-list>
+          <ion-item>
+            <strong>Temp: </strong> {{weather.main.temp}}
+          </ion-item>          
+          <ion-item>
+            <strong>Relative Humidity: </strong> {{weather.main.humidity}}
+          </ion-item>          
+          <ion-item>
+            <strong>Min Temp: </strong> {{weather.main.temp_min}}
+          </ion-item>
+          <ion-item>
+            <strong>Max Temp: </strong> {{weather.main.temp_max}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>    
+    <ion-row>
+      <ion-col width-100>
+        <h2 class="location">Prayer Times</h2>
+        <ion-list>
+          <ion-item>
+            <strong>Fajr: </strong> {{prayers.data.timings.Fajr}}
+          </ion-item>          
+          <ion-item>
+            <strong>Dhuhr: </strong> {{prayers.data.timings.Dhuhr}}
+          </ion-item>          
+          <ion-item>
+            <strong>Asr: </strong> {{prayers.data.timings.Asr}}
+          </ion-item>
+          <ion-item>
+            <strong>Maghrib: </strong> {{prayers.data.timings.Maghrib}}
+          </ion-item>
+          <ion-item>
+            <strong>Isha: </strong> {{prayers.data.timings.Isha}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
